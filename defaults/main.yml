@@ -1,0 +1,26 @@
+---
+# defaults file for ansible-role-docker-container
+
+networks:
+  - name: ''
+    driver: ''
+    ipam_options:
+      subnet: ''
+      gateway: ''
+
+containers:
+  - name: ''
+    image: ''
+    ports:
+      - ''
+    mac_address: ''
+    networks:
+      name: ''
+      ipv4_address: ''
+    volumes:
+      - ''
+      - ''
+    labels:
+      application: ''
+      environment: ''
+

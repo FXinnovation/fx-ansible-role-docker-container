@@ -1,0 +1,39 @@
+---
+# tasks file for ansible-role-docker-container
+
+- name: Ensure library python-docker-py is installed
+  package:
+    name: "python-docker-py"
+    state: present
+
+- name: Create dedicated networks with options
+  docker_network:
+    name: "{{ item.name }}"
+    driver: "{{ item.driver }}"
+    ipam_options:
+      subnet: "{{ item.ipam_options.subnet }}"
+      gateway: "{{ item.ipam_options.gateway }}"
+  loop: "{{ networks }}"
+  when: item.name != ''
+
+- name: Start containers
+  docker_container:
+    name: "{{ item.name }}"
+    image: "{{ item.image }}"
+    state: started
+    restart_policy: always
+    ports: "{{ item.ports }}"
+    mac_address: "{{ item.mac_address }}"
+    networks:
+      - name: "{{ item.networks.name }}"
+        ipv4_address: "{{ item.networks.ipv4_address }}"
+    purge_networks: yes
+    volumes: "{{ item.volumes }}"
+    labels:
+      application: "{{ item.labels.application }}"
+      environment: "{{ item.labels.environment }}"
+    log_driver: "syslog"
+    log_options:
+      labels: "application,environment"
+  loop: "{{ containers }}"
+  when: item.name != ''
