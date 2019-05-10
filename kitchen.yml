@@ -33,7 +33,9 @@ provisioner:
   require_ruby_for_busser: false
   role_name: 
     - "ansible-role-docker"
+    - "<%= ENV['KITCHEN_ROLENAME'] %>"
   roles_path: "."
+  additional_copy_role_path: "roles/"
 
 platforms:
   - name: "rhel-7"
