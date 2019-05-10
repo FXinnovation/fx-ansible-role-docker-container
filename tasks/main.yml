@@ -14,7 +14,7 @@
       subnet: "{{ item.ipam_options.subnet }}"
       gateway: "{{ item.ipam_options.gateway }}"
   loop: "{{ networks }}"
-  when: item.name != ''
+  when: item.name | length > 0
 
 - name: Start containers
   docker_container:
@@ -36,4 +36,4 @@
     log_options:
       labels: "application,environment"
   loop: "{{ containers }}"
-  when: item.name != ''
+  when: item.name | length > 0
