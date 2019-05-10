@@ -4,8 +4,7 @@
   remote_user: root
   tasks:
   - name: 'Install Docker Engine'
-    include_role:
-      name: ansible-role-docker
+    roles: ansible-role-docker
 
   - name: 'Launch Docker Container'
     vars:
@@ -30,5 +29,4 @@
         labels:
           application: "application"
           environment: "production"
-    include_role:
-      name: ansible-role-docker-container
+    roles: ansible-role-docker-container
