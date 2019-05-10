@@ -1,5 +1,34 @@
 ---
 - hosts: localhost
+  become: yes
   remote_user: root
-  roles:
-    - ansible-role-docker-container
+  tasks:
+  - name: 'Install Docker Engine'
+    include_role:
+      name: ansible-role-docker
+
+  - name: 'Launch Docker Container'
+    vars:
+      networks:
+      - name: network_test
+        driver: bridge
+        ipam_options:
+          subnet: '10.0.0.0/24'
+          gateway: 10.0.0.1
+
+      containers:
+      - name: "application"
+        image: "nginx:latest"
+        ports:
+          - "24224:24224"
+        mac_address: "02:42:c6:3b:dd:fd"
+        networks:
+          name: "network_test"
+          ipv4_address: "10.0.0.10"
+        volumes:
+          - "/var/log:/application/log/"
+        labels:
+          application: "application"
+          environment: "production"
+    include_role:
+      name: ansible-role-docker-container
