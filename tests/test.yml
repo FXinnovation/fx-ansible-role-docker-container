@@ -27,18 +27,3 @@
           labels:
             application: "application"
             environment: "production"
-
-        containers:
-        - name: "application"
-          image: "localhost:5000/fluentd"
-          ports:
-            - "24224:24224"
-          mac_address: "02:42:c6:3b:dd:fd"
-          networks:
-            name: "goanywhere-net"
-            ipv4_address: "192.168.66.6"
-          volumes:
-            - "/var/log:/application/log/"
-          labels:
-            application: "application"
-            environment: "production"
