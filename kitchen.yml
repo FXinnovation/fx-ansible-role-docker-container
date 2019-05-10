@@ -35,7 +35,7 @@ provisioner:
     - "ansible-role-docker"
     - "ansible-role-docker-container"
   roles_path: "."
-  additional_copy_role_path: "/tmp/kitchen/roles"
+  additional_copy_role_path: "roles/"
 
 platforms:
   - name: "rhel-7"
