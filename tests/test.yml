@@ -2,31 +2,43 @@
 - hosts: localhost
   become: yes
   remote_user: root
-  tasks:
-  - name: 'Install Docker Engine'
-    roles: ansible-role-docker
-
-  - name: 'Launch Docker Container'
-    vars:
-      networks:
-      - name: network_test
-        driver: bridge
-        ipam_options:
-          subnet: '10.0.0.0/24'
-          gateway: 10.0.0.1
-
-      containers:
-      - name: "application"
-        image: "nginx:latest"
-        ports:
-          - "24224:24224"
-        mac_address: "02:42:c6:3b:dd:fd"
+  roles:
+    - role: ansible-role-docker
+    - role: ansible-role-docker-container
+      vars:
         networks:
-          name: "network_test"
-          ipv4_address: "10.0.0.10"
-        volumes:
-          - "/var/log:/application/log/"
-        labels:
-          application: "application"
-          environment: "production"
-    roles: ansible-role-docker-container
+        - name: network_test
+          driver: bridge
+          ipam_options:
+            subnet: '10.0.0.0/24'
+            gateway: 10.0.0.1
+
+        containers:
+        - name: "application"
+          image: "nginx:latest"
+          ports:
+            - "24224:24224"
+          mac_address: "02:42:c6:3b:dd:fd"
+          networks:
+            name: "network_test"
+            ipv4_address: "10.0.0.10"
+          volumes:
+            - "/var/log:/application/log/"
+          labels:
+            application: "application"
+            environment: "production"
+
+        containers:
+        - name: "application"
+          image: "localhost:5000/fluentd"
+          ports:
+            - "24224:24224"
+          mac_address: "02:42:c6:3b:dd:fd"
+          networks:
+            name: "goanywhere-net"
+            ipv4_address: "192.168.66.6"
+          volumes:
+            - "/var/log:/application/log/"
+          labels:
+            application: "application"
+            environment: "production"
