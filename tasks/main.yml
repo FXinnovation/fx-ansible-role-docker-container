@@ -48,13 +48,12 @@
     name: "{{ item.name }}"
     image: "{{ item.image }}"
     state: started
-    restart_policy: always
+    restart_policy: unless-stopped
     ports: "{{ item.ports }}"
     mac_address: "{{ item.mac_address }}"
     networks:
       - name: "{{ item.networks.name }}"
         ipv4_address: "{{ item.networks.ipv4_address }}"
-    purge_networks: yes
     volumes: "{{ item.volumes }}"
     labels:
       application: "{{ item.labels.application }}"
