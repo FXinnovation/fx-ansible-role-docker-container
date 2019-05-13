@@ -31,9 +31,7 @@ provisioner:
   idempotency_test: true
   require_chef_for_busser: false
   require_ruby_for_busser: false
-  role_name: 
-    - "ansible-role-docker"
-    - "ansible-role-docker-container"
+  role_name: "ansible-role-docker-container"
   roles_path: "."
   additional_copy_role_path: "roles/"
   additional_copy_path: "roles/"
@@ -105,4 +103,3 @@ suites:
       inspec_tests:
         - name: local
           path: test/integration/default/amazon.rb
-
