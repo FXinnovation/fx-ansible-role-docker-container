@@ -5,7 +5,7 @@
   package:
     name: "{{ docker_package }}"
     state: present
-  when: ansible_distribution != "RedHat"
+  when: ansible_distribution == "Centos"
 
 - name: "Find extra repos"
   shell: "set -o pipefail; yum repolist all | egrep -e '^rhui-REGION-rhel-server-extras' -e '^rhel-7-server-extras-rpms' | cut -d'/' -f1"
@@ -21,6 +21,17 @@
     state: present
     enablerepo: "{{ redhat_extrarepo.stdout }}"
   when: ansible_distribution == "RedHat"
+
+- name: Ensure pip is installed
+  package:
+    name: "python3-pip"
+    state: present
+  when: ansible_distribution == "Amazon"
+
+- name: Ensure docker-py is installed
+  pip:
+    name: docker-py
+  when: ansible_distribution == "Amazon"
 
 - name: Create dedicated networks with options
   docker_network:
