@@ -1,6 +1,4 @@
 ---
-# tasks file for ansible-role-docker-container
-
 - name: Ensure library python-docker-py is installed
   package:
     name: "{{ docker_package }}"
