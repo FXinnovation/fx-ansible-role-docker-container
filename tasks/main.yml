@@ -5,7 +5,7 @@
   package:
     name: "{{ docker_package }}"
     state: present
-  when: ansible_distribution == "Centos"
+  when: ansible_distribution == "CentOS"
 
 - name: "Find extra repos"
   shell: "set -o pipefail; yum repolist all | egrep -e '^rhui-REGION-rhel-server-extras' -e '^rhel-7-server-extras-rpms' | cut -d'/' -f1"
