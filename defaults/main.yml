@@ -1,6 +1,8 @@
 ---
 # defaults file for ansible-role-docker-container
 
+docker_package: "python-docker-py"
+
 networks:
   - name: ''
     driver: ''

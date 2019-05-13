@@ -3,8 +3,24 @@
 
 - name: Ensure library python-docker-py is installed
   package:
-    name: "python-docker-py"
+    name: "{{ docker_package }}"
     state: present
+  when: ansible_distribution != "RedHat"
+
+- name: "Find extra repos"
+  shell: "set -o pipefail; yum repolist all | egrep -e '^rhui-REGION-rhel-server-extras' -e '^rhel-7-server-extras-rpms' | cut -d'/' -f1"
+  args:
+    warn: no
+  register: "redhat_extrarepo"
+  changed_when: False
+  when: ansible_distribution == "RedHat"
+
+- name: Ensure library python-docker-py is installed
+  yum:
+    name: "{{ docker_package }}"
+    state: present
+    enablerepo: "{{ redhat_extrarepo.stdout }}"
+  when: ansible_distribution == "RedHat"
 
 - name: Create dedicated networks with options
   docker_network:
