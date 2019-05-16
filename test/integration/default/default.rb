@@ -1,8 +1,7 @@
 control "ansible-role-docker-container - #{os.name} #{os.release} - 01" do
   impact 1.0
   title 'Ansible role docker container'
-  describe docker_container(name: 'application') 
-   do
+  describe docker_container(name: 'application') do
      it { should exist }
      it { should be_running }
      its('repo') { should eq 'nginx' }
