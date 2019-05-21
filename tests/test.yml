@@ -28,5 +28,5 @@
           labels:
             application: "application"
             environment: "production"
-          shm_size: ''
+          shm_size: '64M'
           ulimits: []
