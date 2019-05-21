@@ -11,16 +11,16 @@ networks:
 containers:
   - name: ''
     image: ''
-    ports:
-      - ''
+    env: {}
+    ports: []
     mac_address: ''
     networks:
       name: ''
       ipv4_address: ''
-    volumes:
-      - ''
-      - ''
+    volumes: []
     labels:
       application: ''
       environment: ''
+    shm_size: ''
+    ulimits: []
 
