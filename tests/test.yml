@@ -16,6 +16,7 @@
         containers:
         - name: "application"
           image: "nginx:latest"
+          env: {}
           ports:
             - "24224:24224"
           mac_address: "02:42:c6:3b:dd:fd"
@@ -27,3 +28,5 @@
           labels:
             application: "application"
             environment: "production"
+          shm_size: '64M'
+          ulimits: []

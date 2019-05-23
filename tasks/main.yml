@@ -22,7 +22,7 @@
 
 - name: Ensure pip is installed
   package:
-    name: "python3-pip"
+    name: "python2-pip"
     state: present
   when: ansible_distribution == "Amazon"
 
@@ -45,6 +45,7 @@
   docker_container:
     name: "{{ item.name }}"
     image: "{{ item.image }}"
+    env: "{{ item.env }}"
     state: started
     restart_policy: unless-stopped
     ports: "{{ item.ports }}"
@@ -59,5 +60,7 @@
     log_driver: "syslog"
     log_options:
       labels: "application,environment"
+    shm_size: "{{ item.shm_size }}"
+    ulimits: "{{ item.ulimits }}"
   loop: "{{ containers }}"
   when: item.name | length > 0

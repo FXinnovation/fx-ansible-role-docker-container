@@ -35,6 +35,7 @@ Example Playbook
       containers:
       - name: "application"
         image: "localhost:5000/fluentd"
+        env: {}
         ports:
           - "24224:24224"
         mac_address: "02:42:c6:3b:dd:fd"
@@ -46,9 +47,12 @@ Example Playbook
         labels:
           application: "application"
           environment: "production"
+        shm_size: ''
+        ulimits: []
 
     include_role:
       name: ansible-role-docker-container
+```
 
 License
 -------
