@@ -62,5 +62,6 @@
       labels: "application,environment"
     shm_size: "{{ item.shm_size }}"
     ulimits: "{{ item.ulimits }}"
+    privileged: "{{ item.privileged | default(false) }}"
   loop: "{{ containers }}"
   when: item.name | length > 0
