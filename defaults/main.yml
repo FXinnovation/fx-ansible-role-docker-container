@@ -21,6 +21,7 @@ containers:
     labels:
       application: ''
       environment: ''
+    log_driver: 'json-file'
     shm_size: ''
     ulimits: []
     privileged: false
