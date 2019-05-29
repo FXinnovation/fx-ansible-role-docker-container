@@ -57,7 +57,7 @@
     labels:
       application: "{{ item.labels.application }}"
       environment: "{{ item.labels.environment }}"
-    log_driver: "{{ item.log_driver }}"
+    log_driver: "{{ item.log_driver | default('json-file') }}"
     log_options:
       labels: "application,environment"
     shm_size: "{{ item.shm_size }}"
