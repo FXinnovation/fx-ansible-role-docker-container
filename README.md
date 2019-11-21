@@ -1,7 +1,7 @@
 ansible-role-docker-container
 ===================
 
-Run docker container for CentOS / RHEL / Amazon Linux 2.  
+Run docker container for CentOS / RHEL / Amazon Linux 2.
 
 Requirements
 ------------
