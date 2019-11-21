@@ -5,11 +5,14 @@
     state: present
   when: ansible_distribution == "CentOS"
 
-- name: "Find extra repos"
-  shell: "set -o pipefail; yum repolist all | egrep -e '^rhui-REGION-rhel-server-extras' -e '^rhel-7-server-extras-rpms' | cut -d'/' -f1"
+- name: 'Find extra repos'
+  shell:
+    cmd: |
+      set -o pipefail;
+      yum repolist all | egrep -e '^[!*]?rhui-REGION-rhel-server-extras' -e '^[!*]?rhel-7-server-extras-rpms' | sed -r 's#^[!*]?([^/]*)/.*#\1#'
   args:
-    warn: no
-  register: "redhat_extrarepo"
+    warn: 'no'
+  register: 'redhat_extrarepo'
   changed_when: False
   when: ansible_distribution == "RedHat"
 
