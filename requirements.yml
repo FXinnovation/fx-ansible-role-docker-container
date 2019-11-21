@@ -1,4 +1,4 @@
 - name: "ansible-role-docker"
   scm: "git"
   src: "ssh://git@scm.dazzlingwrench.fxinnovation.com:2222/fxinnovation-public/ansible-role-docker.git"
-  version: "0.0.1"
+  version: "0.0.2"
