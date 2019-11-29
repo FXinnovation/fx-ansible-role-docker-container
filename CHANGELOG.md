@@ -2,6 +2,7 @@
 
 ## 0.2.0
 
+* Add links support to docker\_container
 * Add default value for some parameters
 
 ## 0.1.2

@@ -66,5 +66,6 @@
     shm_size: "{{ item.shm_size }}"
     ulimits: "{{ item.ulimits | default([]) }}"
     privileged: "{{ item.privileged | default(false) }}"
+    links: "{{ item.links | default([]) }}"
   loop: "{{ containers }}"
   when: item.name | length > 0

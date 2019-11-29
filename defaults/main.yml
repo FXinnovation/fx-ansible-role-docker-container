@@ -25,3 +25,4 @@ containers:
     shm_size: ''
     ulimits: []
     privileged: false
+    links: []
