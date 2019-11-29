@@ -48,23 +48,23 @@
   docker_container:
     name: "{{ item.name }}"
     image: "{{ item.image }}"
-    env: "{{ item.env }}"
-    state: started
-    restart_policy: unless-stopped
-    ports: "{{ item.ports }}"
+    env: "{{ item.env | default(omit) }}"
+    state: 'started'
+    restart_policy: 'unless-stopped'
+    ports: "{{ item.ports | default(omit) }}"
     mac_address: "{{ item.mac_address }}"
-    networks:
-      - name: "{{ item.networks.name }}"
-        ipv4_address: "{{ item.networks.ipv4_address }}"
-    volumes: "{{ item.volumes }}"
+    networks: "{{ item.networks | default(omit) }}"
+    volumes: "{{ item.volumes | default(omit) }}"
     labels:
       application: "{{ item.labels.application }}"
       environment: "{{ item.labels.environment }}"
     log_driver: "{{ item.log_driver | default('json-file') }}"
     log_options:
-      labels: "application,environment"
+      labels: 'application,environment'
     shm_size: "{{ item.shm_size }}"
-    ulimits: "{{ item.ulimits }}"
-    privileged: "{{ item.privileged | default(false) }}"
+    ulimits: "{{ item.ulimits | default(omit) }}"
+    privileged: "{{ item.privileged | default(omit) }}"
+    links: "{{ item.links | default(omit) }}"
+    entrypoint: "{{ item.entrypoint|default(omit) }}"
   loop: "{{ containers }}"
   when: item.name | length > 0

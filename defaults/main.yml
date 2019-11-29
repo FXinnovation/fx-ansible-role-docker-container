@@ -15,8 +15,8 @@ containers:
     ports: []
     mac_address: ''
     networks:
-      name: ''
-      ipv4_address: ''
+      - name: ''
+        ipv4_address: ''
     volumes: []
     labels:
       application: ''
@@ -25,3 +25,5 @@ containers:
     shm_size: ''
     ulimits: []
     privileged: false
+    links: []
+    entrypoint: ''
