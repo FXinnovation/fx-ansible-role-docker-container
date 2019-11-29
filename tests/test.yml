@@ -21,8 +21,8 @@
             - "24224:24224"
           mac_address: "02:42:c6:3b:dd:fd"
           networks:
-            name: "network_test"
-            ipv4_address: "10.0.0.10"
+            - name: "network_test"
+              ipv4_address: "10.0.0.10"
           volumes:
             - "/var/log:/application/log/"
           labels:

@@ -1,9 +1,11 @@
 # CHANGELOG
 
-## 0.2.0
+## 1.0.0
 
+* The parameter network is now a list (to permit more configuration)
 * Add links support to docker\_container
-* Add default value for some parameters
+* Add entrypoint support to docker\_container
+* Use default(omit) on some parameters
 
 ## 0.1.2
 
