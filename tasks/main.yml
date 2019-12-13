@@ -65,6 +65,7 @@
     ulimits: "{{ item.ulimits | default(omit) }}"
     privileged: "{{ item.privileged | default(omit) }}"
     links: "{{ item.links | default(omit) }}"
-    entrypoint: "{{ item.entrypoint|default(omit) }}"
+    entrypoint: "{{ item.entrypoint | default(omit) }}"
+    pull: "{{ item.pull | default(omit) }}"
   loop: "{{ containers }}"
   when: item.name | length > 0
