@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.1
+
+* Add pull support to docker\_container
+
 ## 1.0.0
 
 * The parameter network is now a list (to permit more configuration)
