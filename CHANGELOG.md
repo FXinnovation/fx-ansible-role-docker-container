@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.2
+
+* Fix RHEL extras repo
+
 ## 1.0.1
 
 * Add pull support to docker\_container

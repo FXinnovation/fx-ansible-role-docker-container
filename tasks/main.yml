@@ -9,7 +9,7 @@
   shell:
     cmd: |
       set -o pipefail;
-      yum repolist all | egrep -e '^[!*]?rhui-REGION-rhel-server-extras' -e '^[!*]?rhel-7-server-extras-rpms' | sed -r 's#^[!*]?([^/]*)/.*#\1#'
+      yum repolist all | egrep -e '^[!*]?rhui-REGION-rhel-server-extras' -e '^[!*]?rhel-7-server-extras-rpms' -e '^[!*]?rhel-7-server-rhui-extras-rpms' | sed -r 's#^[!*]?([^/]*)/.*#\1#'
   args:
     warn: 'no'
   register: 'redhat_extrarepo'
