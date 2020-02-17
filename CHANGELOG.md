@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.3
+
+* Requirements: use public HTTPS instead of SSH
+
 ## 1.0.2
 
 * Fix RHEL extras repo
