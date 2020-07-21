@@ -27,3 +27,6 @@ containers:
     privileged: false
     links: []
     entrypoint: ''
+    command: ''
+    capabilities: []
+    capabilites_drop: []
