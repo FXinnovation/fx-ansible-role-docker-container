@@ -33,4 +33,3 @@
           capabilites:
             - 'IPC_LOCK'
           capabilities_drop: []
-          command: ''
