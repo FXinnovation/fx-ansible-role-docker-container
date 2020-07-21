@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.1.0
+
+* feat: Add `command`, `capabilities` and `capabilities_drop` options
+
 ## 1.0.3
 
 * Requirements: use public HTTPS instead of SSH
