@@ -30,6 +30,6 @@
             environment: "production"
           shm_size: '64M'
           ulimits: []
-          capabilites:
+          capabilities:
             - 'IPC_LOCK'
           capabilities_drop: []
