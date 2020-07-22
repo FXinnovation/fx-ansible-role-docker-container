@@ -9,7 +9,6 @@ driver:
 
 transport:
   name: "ssh"
-  ssh_key: "/id_rsa.pem"
   username: "ec2-user"
   connection_retries: 5
   connection_retry_sleep: 30
