@@ -67,5 +67,8 @@
     links: "{{ item.links | default(omit) }}"
     entrypoint: "{{ item.entrypoint | default(omit) }}"
     pull: "{{ item.pull | default(omit) }}"
+    command: "{{ item.command | default(omit) }}"
+    capabilities: "{{ item.capabilities | default(omit) }}"
+    cap_drop: "{{ item.capabilities_drop | default(omit) }}"
   loop: "{{ containers }}"
   when: item.name | length > 0

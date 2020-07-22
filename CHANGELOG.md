@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 1.1.0
+
+* feat: Add `command`, `capabilities` and `capabilities_drop` options
+* chore: remove specifics subnet id and ssh key
+
 ## 1.0.3
 
 * Requirements: use public HTTPS instead of SSH
