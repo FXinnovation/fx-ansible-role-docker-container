@@ -33,16 +33,6 @@ provisioner:
   additional_copy_path: "roles/"
 
 platforms:
-  - name: "rhel-7"
-    driver:
-      instance_type: "t3.small"
-      image_search:
-        name: "RHEL-7.*_HVM_GA*"
-        owner-id: "309956199498"
-      tags:
-        Name: "tk-ansible-role-docker-container"
-        kitchen: "true"
-        packer: "true"
   - name: "centos-7"
     driver:
       image_search:
