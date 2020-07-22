@@ -6,6 +6,6 @@ control "ansible-role-docker-container - #{os.name} #{os.release} - 01" do
      it { should be_running }
      its('repo') { should eq 'nginx' }
      its('ports') { should eq "80/tcp, 0.0.0.0:24224->24224/tcp" }
-     its('command') { should eq "nginx -g 'daemon off;'" }
+     its('command') { should eq "/docker-entrypoint.sh nginx -g 'daemon off;'" }
    end
 end
