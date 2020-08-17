@@ -23,8 +23,9 @@ provisioner:
   ansible_verbose: false
   ansible_verbosity: 2
   require_pip: true
-  ansible_version: "2.7.10"
+  ansible_version: "2.7.18"
   idempotency_test: true
+  idempotency_skip_tags: ["kitchen_idempotency_skip_tag"]
   require_chef_for_busser: false
   require_ruby_for_busser: false
   role_name: "ansible-role-docker-container"
@@ -33,6 +34,13 @@ provisioner:
   additional_copy_path: "roles/"
 
 platforms:
+  - name: "rhel-7"
+    driver:
+      instance_type: "t3.small"
+      tags:
+        Name: "tk-ansible-role-docker-container"
+        kitchen: "true"
+        packer: "true"
   - name: "centos-7"
     driver:
       image_search:
