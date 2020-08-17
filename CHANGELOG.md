@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.1.1
+
+* Fix kitchen
+
 ## 1.1.0
 
 * feat: Add `command`, `capabilities` and `capabilities_drop` options
