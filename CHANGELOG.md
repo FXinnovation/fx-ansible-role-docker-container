@@ -2,7 +2,10 @@
 
 ## 1.1.1
 
-* Fix kitchen
+* fix: RHEL 7.8, match new repo name
+* fix: kitchen
+* maintenance: bump role docker 0.0.3:
+  * fix: RHEL 7.8, match new repo name
 
 ## 1.1.0
 
