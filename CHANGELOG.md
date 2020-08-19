@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 1.1.1
+
+* fix: RHEL 7.8, match new repo name
+* fix: kitchen
+* maintenance: bump role docker 0.0.3:
+  * fix: RHEL 7.8, match new repo name
+
 ## 1.1.0
 
 * feat: Add `command`, `capabilities` and `capabilities_drop` options
