@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.1.2
+
+* fix: var `networks.ipam_options` is now optional
+
 ## 1.1.1
 
 * fix: RHEL 7.8, match new repo name

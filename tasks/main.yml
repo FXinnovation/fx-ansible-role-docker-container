@@ -38,9 +38,7 @@
   docker_network:
     name: "{{ item.name }}"
     driver: "{{ item.driver }}"
-    ipam_options:
-      subnet: "{{ item.ipam_options.subnet }}"
-      gateway: "{{ item.ipam_options.gateway }}"
+    ipam_options: "{{ item.ipam_options | default(omit) }}"
   loop: "{{ networks }}"
   when: item.name | length > 0
 
