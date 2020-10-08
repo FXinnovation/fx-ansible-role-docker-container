@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.2.0
+
+* feat: add options to manage `purge_networks` and `network_mode`
+
 ## 1.1.2
 
 * fix: var `networks.ipam_options` is now optional
