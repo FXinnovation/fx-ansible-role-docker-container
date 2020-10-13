@@ -52,6 +52,8 @@
     ports: "{{ item.ports | default(omit) }}"
     mac_address: "{{ item.mac_address }}"
     networks: "{{ item.networks | default(omit) }}"
+    purge_networks: "{{ item.purge_networks | default(omit) }}"
+    network_mode: "{{ item.network_mode | default(omit) }}"
     volumes: "{{ item.volumes | default(omit) }}"
     labels:
       application: "{{ item.labels.application }}"

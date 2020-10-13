@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 1.2.0
+
+* feat: add options to manage `purge_networks` and `network_mode`
+* maintenance: bump ansible role docker 0.0.4:
+  * fix: docker repo bugged for rhel
+
 ## 1.1.2
 
 * fix: var `networks.ipam_options` is now optional
