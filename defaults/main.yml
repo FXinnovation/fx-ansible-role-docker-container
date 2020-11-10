@@ -30,3 +30,5 @@ containers:
     command: ''
     capabilities: []
     capabilites_drop: []
+
+dcontainer_no_log: False

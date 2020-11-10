@@ -72,3 +72,4 @@
     cap_drop: "{{ item.capabilities_drop | default(omit) }}"
   loop: "{{ containers }}"
   when: item.name | length > 0
+  no_log: "{{ dcontainer_no_log }}"
