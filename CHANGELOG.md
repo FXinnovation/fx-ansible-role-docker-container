@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.0
+
+* feat: add option `dcontainer_no_log` (default: false) to hide output on the container's start.
+
 ## 1.2.0
 
 * feat: add options to manage `purge_networks` and `network_mode`
