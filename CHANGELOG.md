@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.3.1
+
+* chore: bump pre-commit hooks
+
 ## 1.3.0
 
 * feat: add option `dcontainer_no_log` (default: false) to hide output on the container's start.
